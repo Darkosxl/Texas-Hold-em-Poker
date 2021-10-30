@@ -1,0 +1,23 @@
+//Team Texas Hold'em
+//Cem Berke, Egemen Balban, Murat Diken, Yigit Sen
+//March 2020
+
+//Class definition: Tester class for the Hold'em Project. Contains the Main method.
+public class HoldemTester
+{
+  
+ public static void main(String[] args)
+ {
+
+  //Create a new frame, set it visible
+  HoldemFrame gameframe = new HoldemFrame();
+  gameframe.setVisible(true);
+
+
+  
+  
+  
+  
+ }
+ 
+}

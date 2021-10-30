@@ -1,0 +1,22 @@
+import java.util.*;
+public class CommunityCards{
+  
+  Card[] communityCards = new Card[5];
+  int index = 0;
+  
+  public CommunityCards(){
+  
+  }
+  
+  public void add(Card card){
+    communityCards[index]= card;
+    index ++;
+  }
+  
+  public Card[] display(){
+    return communityCards;
+  }
+  
+
+
+}

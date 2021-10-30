@@ -1,0 +1,55 @@
+public class HoldemRounds
+{
+ private Player[] players;
+ private String[] names;
+ private Game game;
+ public HoldemRounds(int amountoplayers,String[] names)
+ {
+  names = names;
+  players = new Player[amountoplayers];
+  for(int i = 0; i < players.length; i++)
+  {
+    players[i] = new Player(300,100,100,100,50,names[i]);
+  }
+  game = new Game(players);
+  
+ }
+ public void Ready(int playernum, boolean ready)
+ {
+  players[playernum].setReady(ready);
+ }
+ public boolean startgame(int playernum)
+ {
+  boolean everybodyready = true;
+  for(int i = 0; i<players.length;i++)
+   everybodyready = players[i].ifReady();
+  if(playernum == 1 && everybodyready)
+  {
+   return true; 
+  }
+  else
+  {
+   System.out.println("You can not start the game, not everybody is ready!!");
+   return false;
+  } 
+ }
+ public void leaveServer(int playernum)
+ {
+  players[playernum].setInServer(false);
+  players[playernum].playing = false; 
+ }
+ //THINKABOUT: I SHOULDN'T NEED JOINSERVER METHOD, BUT WHY EXACTLY?
+ public void raise(int playernum, int raise, int bet)
+ {
+  players[playernum].raise(raise,bet); 
+ }
+ public void fold(int playernum)
+ {
+  players[playernum].fold(); 
+ }
+ public void call(int playernum)
+ {
+   
+ }
+// public void
+}

@@ -1,0 +1,62 @@
+//Murat Diken
+//Introduction to Programming
+//May 14th, 2019
+
+public class Deck {
+  
+  private Card[] cards;
+  private int top; //index of the top card
+  
+  public Deck() {
+    int numCards = 0; //the index of the cards array
+    Card card;
+    cards = new Card[52];
+    
+    //initiates the deck
+    for (int i = 1; i < 5; i++) {
+      for (int j = 2; j < 15; j++) {
+        card = new Card(i,j); //creates 52 card objects and stores them in the card array, cards
+        cards[numCards] = card;
+        numCards++;
+      }
+    }
+    top = 0; //top card at index zero when the deck is first created
+    shuffleDeck();
+  }
+  
+  public int getTop() {
+    return top;
+  }
+  
+  //Shuffles the array
+  public void shuffleDeck() {
+    Card tempCard; //this is a temporary card object
+    
+    for (int i = 1; i < 1000; i++) {
+      int rndm = (int) (Math.random() * 52); //a random number
+      tempCard = cards[0]; //replace the top card with a random card in the deck 999 times
+      cards[0] = cards[rndm]; 
+      cards[rndm] = tempCard;
+    }
+  }
+  
+  public void dealHands(Player[] players) {
+    for (int i = 0; i < 2; i++) {
+      for (Player player: players) {
+        player.getHand()[i] = dealCard();
+      }
+    }
+  }
+  
+  //deals the top card in the deck
+  public Card dealCard() {
+    if (top > 51) {
+      top = 0;
+      return new Card(0,0);
+    }
+    else {
+      top++;
+      return cards[top - 1];
+    }
+  }
+}
